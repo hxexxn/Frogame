@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <div th:fragment="header" class="header">
+
+        <div class="head-wrap">
+            <div>
+                <a th:href="@{/}">Frogame</a>
+            </div>
+            <div>
+                <p>게임 목록</p>
+            </div>
+            <div>
+                <a th:href="@{/user/login}">로그인</a>
+            </div>
+            <div>
+                <a th:href="@{/user/join}">회원가입</a>
+            </div>
+        </div>
+
+    </div>
+
+</html>
