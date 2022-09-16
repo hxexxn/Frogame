@@ -1,9 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/layout1}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layouts/layout1}">
+
+    <!-- 해당 HTML의 CSS 및 JS 주소를 입력하면 됨. -->
+<th:block layout:fragment="script"></th:block>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/user_login.css}">
+</th:block>
 
 <div layout:fragment="content">
-    로그인 영역입니다!
+
+    <div class="login-wrap">
+
+        <form class="login-form" id="login-form" method="post" action="{/login}">
+
+        </form>
+
+    </div>
+
+
 </div>
+
 </html>

@@ -1,9 +1,91 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/layout1}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layouts/layout1}">
+
+    <!-- 해당 HTML의 CSS 및 JS 주소를 입력하면 됨. -->
+<th:block layout:fragment="script"></th:block>
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/user_join.css}">
+</th:block>
 
 <div layout:fragment="content">
-    회원가입 영역입니다!
+
+    <div class="join-wrap">
+
+        <form class="join-form" id="join-form" method="post" th:action="@{/user/join}">
+
+            <!-- id -->
+            <div class="input-container id">
+                <div>
+                    <p>아이디</p>
+                </div>
+                <div>
+                    <input type="text" id="user_id" name="user_id">
+                </div>
+                <div class="input-ajax">
+                    <p class="dup-id"></p>
+                </div>
+            </div>
+
+            <!-- password -->
+            <div class="input-container password">
+                <div>
+                    <p>비밀번호</p>
+                </div>
+                <div>
+                    <input type="password" id="user_pw" name="user_pw">
+                </div>
+            </div>
+
+            <!-- rePassword -->
+            <div class="input-container rePassword">
+                <div>
+                    <p>비밀번호 확인</p>
+                </div>
+                <div>
+                    <input type="password" id="user_rePw" name="user_rePw">
+                </div>
+                <div class="input-ajax">
+                    <p class="cor-pw"></p>
+                </div>
+            </div>
+
+            <!-- nickname -->
+            <div class="input-container nick-name">
+                <div>
+                    <p>닉네임</p>
+                </div>
+                <div>
+                    <input type="text" id="user_nick" name="user_nick">
+                </div>
+                <div class="input-ajax">
+                    <p class="dup-nick"></p>
+                </div>
+            </div>
+
+            <!-- email -->
+            <div class="input-container email">
+                <div>
+                    <p>이메일</p>
+                </div>
+                <div>
+                    <input type="email" id="user_email" name="user_email">
+                </div>
+                <div class="input-ajax">
+                    <p class="dup-email"></p>
+                </div>
+            </div>
+
+            <!-- join button -->
+            <div class="btn-container">
+                <button type="submit" class="join-btn">회원 가입</button>
+            </div>
+
+        </form>
+
+    </div>
+
+
 </div>
+
 </html>

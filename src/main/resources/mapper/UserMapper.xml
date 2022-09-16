@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.frogame.www.mapper.UserMapper">
+
+    <insert id="user_join">
+        INSERT INTO userTBL(user_id, user_pw, user_nick, user_email) 
+        VALUES (#{user_id}, #{user_pw}, #{user_nick}, #{user_email})
+    </insert>
+
+</mapper>
