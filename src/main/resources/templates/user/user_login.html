@@ -5,14 +5,42 @@
     <!-- 해당 HTML의 CSS 및 JS 주소를 입력하면 됨. -->
 <th:block layout:fragment="script"></th:block>
 <th:block layout:fragment="css">
-    <link rel="stylesheet" th:href="@{/css/user_login.css}">
+    <link rel="stylesheet" th:href="@{/css/user_join.css}">
 </th:block>
 
 <div layout:fragment="content">
 
     <div class="login-wrap">
 
-        <form class="login-form" id="login-form" method="post" action="{/login}">
+        <form class="login-form" id="join-form" method="post" th:action="@{/user/login}">
+
+            <!-- id -->
+            <div class="input-container id">
+                <div>
+                    <p>아이디</p>
+                </div>
+                <div>
+                    <input type="text" id="user_id" name="user_id">
+                </div>
+                <div class="input-ajax">
+                    <p class="dup-id"></p>
+                </div>
+            </div>
+
+            <!-- password -->
+            <div class="input-container password">
+                <div>
+                    <p>비밀번호</p>
+                </div>
+                <div>
+                    <input type="password" id="user_pw" name="user_pw">
+                </div>
+            </div>
+
+            <!-- login button -->
+            <div class="btn-container">
+                <button type="submit" class="login-btn">로그인</button>
+            </div>
 
         </form>
 

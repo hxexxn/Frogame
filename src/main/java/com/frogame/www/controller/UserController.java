@@ -3,6 +3,7 @@ package com.frogame.www.controller;
 import com.frogame.www.model.UserDTO;
 import com.frogame.www.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,7 +33,7 @@ public class UserController {
     // 로그인
     @PostMapping (value = "/login")
     public void user_login(UserDTO userDTO) {
-
+        
     }
 
     // 회원가입 페이지 이동
