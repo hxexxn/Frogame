@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
@@ -78,18 +80,48 @@ public class UserController {
         return "redirect:/";
     }
 
-    // 회원가입 페이지 이동
+    // 회원 가입 페이지 이동
     @GetMapping (value = "/join")
     public String join() {
         return "user/user_join";
     }
 
-    // 회원가입
+    // 회원 가입
     @PostMapping (value = "/join")
     public String user_join(UserDTO userDTO) {
         System.out.printf("회원 가입 시도하는 중");
         userService.user_join(userDTO);
         System.out.printf("회원 가입 완료");
         return "redirect:/";
+    }
+
+    // 회원 가입 - 유저 아이디 중복 확인
+    @ResponseBody
+    @PostMapping (value = "/userIdCheck")
+    public int user_id_check(@RequestParam ("user_id") String user_id) {
+
+        int id_count = userService.user_id_check(user_id);
+
+        return id_count;
+    }
+
+    // 회원 가입 - 유저 닉네임 중복 확인
+    @ResponseBody
+    @PostMapping (value = "/userNickCheck")
+    public int user_nick_check(@RequestParam ("user_nick") String user_nick) {
+
+        int nick_count = userService.user_nick_check(user_nick);
+
+        return nick_count;
+    }
+
+    // 회원 가입 - 유저 닉네임 중복 확인
+    @ResponseBody
+    @PostMapping (value = "/userEmailCheck")
+    public int user_email_check(@RequestParam ("user_email") String user_email) {
+
+        int email_count = userService.user_email_check(user_email);
+
+        return email_count;
     }
 }

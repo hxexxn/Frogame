@@ -3,17 +3,35 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.frogame.www.mapper.UserMapper">
 
+    <!-- 유저 회원가입 -->
     <insert id="user_join">
         INSERT INTO userTBL(user_id, user_pw, user_nick, user_email) 
         VALUES (#{user_id}, #{user_pw}, #{user_nick}, #{user_email})
     </insert>
 
+    <!-- 유저 로그인 -->
     <select id="user_login" resultType="com.frogame.www.model.UserDTO">
         SELECT * FROM userTBL WHERE user_id = #{user_id}
     </select>
 
+    <!-- 유저 로그인 - 비밀번호 일치 여부 체크 -->
     <select id="user_find_pw" resultType="String">
         SELECT user_pw FROM userTBL WHERE user_id = #{user_id}
+    </select>
+
+    <!-- 유저 회원가입 - 아이디 중복 확인 -->
+    <select id="user_id_check" resultType="int" parameterType="String">
+        SELECT count(*) FROM userTBL WHERE user_id = #{user_id}
+    </select>
+
+    <!-- 유저 회원가입 - 유저 닉네임 중복 확인 -->
+    <select id="user_nick_check" resultType="int" parameterType="String">
+        SELECT count(*) FROM userTBL WHERE user_nick = #{user_nick}
+    </select>
+
+    <!-- 유저 회원가입 - 유저 이메일 중복 확인 -->
+    <select id="user_email_check" resultType="int" parameterType="String">
+        SELECT count(*) FROM userTBL WHERE user_email = #{user_email}
     </select>
 
 </mapper>
