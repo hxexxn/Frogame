@@ -8,4 +8,12 @@
         VALUES (#{user_id}, #{user_pw}, #{user_nick}, #{user_email})
     </insert>
 
+    <select id="user_login" resultType="com.frogame.www.model.UserDTO">
+        SELECT * FROM userTBL WHERE user_id = #{user_id}
+    </select>
+
+    <select id="user_find_pw" resultType="String">
+        SELECT user_pw FROM userTBL WHERE user_id = #{user_id}
+    </select>
+
 </mapper>

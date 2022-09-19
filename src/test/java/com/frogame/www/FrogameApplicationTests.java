@@ -28,7 +28,7 @@ class FrogameApplicationTests {
 		System.out.printf(encode_pw);
 	}
 
-	@Test
+//	@Test
 	@DisplayName("회원가입 암호화 테스트")
 	public void joinTest() {
 
@@ -40,6 +40,12 @@ class FrogameApplicationTests {
 		user.setUser_email("raccoon@naver.com");
 
 		userService.user_join(user);
-
 	}
+
+//	@Test
+//	@DisplayName("유저 로그인 테스트")
+//	public void loginTest() {
+//		return null;
+//
+//	}
 }

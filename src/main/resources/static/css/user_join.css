@@ -27,7 +27,7 @@ a, p, span, button, input {
 }
 
 /* 전체 박스 */
-.login-wrap {
+.join-wrap {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -51,7 +51,7 @@ a, p, span, button, input {
 }
 
 .input-container > div > input[type=text], 
-input[type=password] {
+input[type=password], input[type=email] {
     width: 400px;
     height: 40px;
     border: none;
@@ -63,7 +63,7 @@ input:focus {
     outline: 1px solid #52BE80;
 }
 
-.login-btn {
+.join-btn {
     width: 400px;
     height: 40px;
     background-color: #52BE80;
