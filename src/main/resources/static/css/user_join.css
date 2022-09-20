@@ -21,7 +21,11 @@ li {
 }
 
 
-a, p, span, button, input {
+a,
+p,
+span,
+button,
+input {
     text-decoration: none;
     outline: none;
 }
@@ -43,12 +47,13 @@ a, p, span, button, input {
     text-align: left;
     font-weight: 500;
     color: #17202A;
-    
+
 }
 
-.input-container > div:not(:first-child) {
+.input-container>div:not(:first-child) {
     margin: 20px 0px 20px 0px;
 }
+
 
 .input-container > div > input[type=text], 
 input[type=password], input[type=email] {
@@ -79,8 +84,82 @@ input:focus {
 
 .dup-id, .dup-nick, .cor-pw, .dup-email {
     color: red;
+
 }
 
 .check-id, .check-nick, .check-pw, .check-email {
     color: #52BE80;
+}
+
+
+.dup-id,
+.dup-nick,
+.cor-pw,
+.dup-email {
+    color: red;
+}
+
+.check-id,
+.check-nick,
+.check-pw,
+.check-email {
+    color: #52BE80;
+}
+
+/* model styles */
+
+
+.modal-background {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.183);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+
+}
+
+.modal-overlay {
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgba(105, 97, 97, 0.467) 0px 7px 29px 0px;
+    padding: 20px;
+    text-align: center;
+}
+
+.model-title {
+    height: 100px;
+    font-size: 24px;
+    color: black;
+    font-weight: 500;
+}
+
+.model-content {
+    height: 80px;
+    /* border: 1px solid red; */
+    font-size: 14px;
+}
+
+.home-btn {
+    padding: 10px 100px 10px 100px;
+    color: white;
+    background-color: #52BE80;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.home-btn:hover {
+    background-color: white;
+    border: 1px solid #52BE80;
+    transition: all 0.2s;
+}
+
+.display-on {
+    display: flex;
 }

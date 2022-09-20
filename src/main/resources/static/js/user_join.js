@@ -202,9 +202,10 @@ $('#userSubmit').click(function () {
             return false;
         }
 
-        $('#join-form').submit();
-
+        $('.modal-background').css("display", "flex");
 })
 
-
+function submit_form() {
+    $('#join-form').submit();
+}
 
