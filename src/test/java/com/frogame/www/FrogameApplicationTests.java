@@ -1,5 +1,6 @@
 package com.frogame.www;
 
+import com.frogame.www.mapper.UserMapper;
 import com.frogame.www.model.UserDTO;
 import com.frogame.www.service.UserService;
 import org.junit.jupiter.api.Disabled;
@@ -8,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @SpringBootTest
 class FrogameApplicationTests {
@@ -17,6 +19,9 @@ class FrogameApplicationTests {
 
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private UserMapper userMapper;
 
 //	@Test
 	@DisplayName("비밀번호 암호화 테스트")
@@ -42,10 +47,18 @@ class FrogameApplicationTests {
 		userService.user_join(user);
 	}
 
-//	@Test
-//	@DisplayName("유저 로그인 테스트")
-//	public void loginTest() {
-//		return null;
-//
-//	}
+	@Test
+	@DisplayName("비밀번호 매칭 테스트")
+	public void pwTest() {
+
+		String pw_result = userMapper.user_find_pw("test1");
+		boolean pw_filter = passwordEncoder.matches("Test1234!", pw_result);
+
+		System.out.println("pw_result 값 : " + pw_result);
+		System.out.println("pw_filter 값 : " + pw_filter);
+
+
+
+
+	}
 }

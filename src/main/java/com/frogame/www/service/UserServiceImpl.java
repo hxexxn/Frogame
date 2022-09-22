@@ -69,4 +69,39 @@ public class UserServiceImpl implements UserService {
         int email_count = userMapper.user_email_check(user_email);
         return email_count;
     }
+
+    // 회원 정보 수정 - 개인 정보 보호를 위한 비밀번호 재입력
+    @Override
+    public UserDTO userPasswordSecurity(UserDTO userDTO) {
+        System.out.println("테스트 Impl 이동");
+
+        String pw_result = userMapper.user_find_pw(userDTO.getUser_id());
+
+        System.out.printf("pw_result 값 : " + pw_result);
+        System.out.println("테스트 Impl 이동 111111");
+
+
+        boolean pw_filter = passwordEncoder.matches(userDTO.getUser_pw(), pw_result);
+
+        System.out.println("테스트 Impl 이동 222222");
+
+        if (pw_filter) {
+            System.out.println("테스트 Impl 이동 333333");
+            UserDTO user_input_pw = userMapper.user_login(userDTO.getUser_id());
+            System.out.println("테스트 Impl 이동 444444 성공");
+            return user_input_pw;
+        } else {
+            System.out.println("테스트 Impl 이동 실패");
+            System.out.println("실패");
+        }
+
+
+        return null;
+    }
+
+    // 회원 정보 수정 - 비밀번호 변경
+    @Override
+    public void user_password_update(String new_user_pw, String user_id) {
+
+    }
 }

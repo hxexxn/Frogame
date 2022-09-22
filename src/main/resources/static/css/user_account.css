@@ -1,0 +1,79 @@
+/* font-family: 'Noto Sans KR', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+
+* {
+    box-sizing: border-box;
+}
+
+div {
+    margin: 0;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+li {
+    /* list-style: none; */
+    cursor: pointer;
+}
+
+
+a, p, span, button, input {
+    text-decoration: none;
+    outline: none;
+}
+
+/* 전체 박스 */
+.modify-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #F8F9F9;
+    padding: 50px 100px 50px 100px;
+}
+
+/* input 전체적인 디자인 */
+.input-container {
+    width: 400px;
+    /* border: 1px solid red; */
+    font-size: 14px;
+    text-align: left;
+    font-weight: 500;
+    color: #17202A;
+    
+}
+
+.input-container > div:not(:first-child) {
+    margin: 20px 0px 20px 0px;
+}
+
+.input-container > div > input[type=text], 
+input[type=password] {
+    width: 400px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+input:focus {
+    outline: 1px solid #52BE80;
+}
+
+.login-btn {
+    width: 400px;
+    height: 40px;
+    background-color: #52BE80;
+    border-radius: 5px;
+    color: white;
+    font-weight: 500;
+}
+
+/* ajax styles */
+.input-ajax {
+    color: red;
+    font-size: 15px;
+}

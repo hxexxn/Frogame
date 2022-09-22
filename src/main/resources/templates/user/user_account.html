@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layouts/layout1}">
+
+<head>
+    <title>로그인 페이지</title>
+
+    <link rel="stylesheet" th:href="@{/css/user_login.css}">
+
+</head>
+
+
+<head>
+    <title>로그인 페이지</title>
+
+    <link rel="stylesheet" th:href="@{/css/user_modify.css}">
+
+</head>
+
+
+<div layout:fragment="content">
+
+    <div class="modify-wrap">
+
+        <!-- id -->
+        <h1>유저 정보 수정 페이지</h1>
+        <div>
+            <span>아이디</span>
+            <span th:text="${session.user_id}"></span>
+        </div>
+        <div>
+            <span>닉네임</span>
+            <span th:text="${session.user_nick}"></span>
+        </div>
+        <div>
+            <span>이메일</span>
+            <span th:text="${session.user_email}"></span>
+        </div>
+
+
+        <button class="login-btn" th:onclick="|location.href='@{/user/account/password_security}'|">정보 수정</button>
+    </div>
+
+    <!-- JS -->
+    <script type="text/javascript" src="/js/user_modify.js"></script>
+
+</div>
+
+</html>

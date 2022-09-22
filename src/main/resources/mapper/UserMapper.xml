@@ -34,4 +34,14 @@
         SELECT count(*) FROM userTBL WHERE user_email = #{user_email}
     </select>
 
+    <!-- 유저 회원 정보 수정 - 비밀번호 -->
+    <update id="user_password_update">
+        UPDATE userTBL SET user_pw = #{new_user_pw} WHERE user_id = #{user_id}
+    </update>
+
+    <!-- 유저 회원 정보 수정 - 닉네임 -->
+    <update id="user_nickName_update">
+        UPDATE userTBL SET user_nick = #{new_user_nick} WHERE user_id = #{user_id}
+    </update>
+
 </mapper>
